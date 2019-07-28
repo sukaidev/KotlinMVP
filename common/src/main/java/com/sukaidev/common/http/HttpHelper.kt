@@ -1,5 +1,6 @@
 package com.sukaidev.common.http
 
+import com.sukaidev.common.common.Constant
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

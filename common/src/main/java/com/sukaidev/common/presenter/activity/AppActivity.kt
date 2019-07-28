@@ -2,6 +2,7 @@ package com.sukaidev.common.presenter.activity
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import com.sukaidev.common.common.AppManager
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity
 
 /**
@@ -11,9 +12,9 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity
 
 abstract class AppActivity : RxAppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
+        AppManager.instance.addActivity(this)
         setContentView(layoutId())
         initView()
     }
@@ -21,6 +22,11 @@ abstract class AppActivity : RxAppCompatActivity() {
     override fun onStart() {
         super.onStart()
         initData()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        AppManager.instance.finishActivity(this)
     }
 
     /**

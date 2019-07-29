@@ -36,7 +36,7 @@ class HttpHelper {
                 .addHeader("charset", "UTF-8")
                 .addHeader("token", AppPrefsUtils.getString(Constant.KEY_SP_TOKEN))
                 .build()
-            chain.proceed()
+            chain.proceed(request)
         }
 
         /**

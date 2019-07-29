@@ -4,8 +4,8 @@ import com.sukaidev.common.App
 import com.sukaidev.common.common.Constant
 
 /**
- * Created by sukaidev on 2019/7/27
- * SP工具类
+ * Created by sukaidev on 2019/7/27.
+ * SP工具类.
  */
 object AppPrefsUtils {
     private var sp: SharedPreferences = App.context.getSharedPreferences(Constant.TABLE_PREFS, Context.MODE_PRIVATE)

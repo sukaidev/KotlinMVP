@@ -38,7 +38,7 @@ fun View.onClick(listener: View.OnClickListener) {
 /**
  * 函数式扩展
  */
-fun View.OnClickListener(method: () -> Unit) {
+fun View.onClick(method: () -> Unit) {
     this.setOnClickListener {
         method()
     }

@@ -9,8 +9,8 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.sukaidev.common.R
 
 /**
- * Created by sukaidev on 2019/7/27
- * Glide工具类
+ * Created by sukaidev on 2019/7/27.
+ * Glide工具类.
  */
 object GlideUtils {
     fun loadImage(context: Context, url: String, imageView: ImageView) {

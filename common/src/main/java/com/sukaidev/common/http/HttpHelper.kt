@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit
  */
 class HttpHelper {
     companion object {
-        val instance: RetrofitFactory by lazy {
-            RetrofitFactory()
+        val instance: HttpHelper by lazy {
+            HttpHelper()
         }
     }
 

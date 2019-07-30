@@ -7,10 +7,7 @@ import javax.inject.Singleton
 
 /**
  * Created by sukaidev on 2019/07/28.
- *
- */
-/**
- * App 全局Component 主要是注入全局context
+ * App 全局Component 主要是注入全局context.
  */
 @Singleton
 @Component(modules = arrayOf(AppModule::class))

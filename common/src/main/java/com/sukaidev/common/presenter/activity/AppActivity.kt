@@ -9,7 +9,6 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity
  * Created by sukaidev on 2019/07/27.
  *
  */
-
 abstract class AppActivity : RxAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {

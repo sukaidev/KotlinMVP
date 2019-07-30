@@ -8,6 +8,7 @@ import com.sukaidev.common.injection.component.LifecycleProviderModule
 import com.sukaidev.common.injection.module.ActivityModule
 import com.sukaidev.common.presenter.AppPresenter
 import com.sukaidev.common.presenter.view.AppView
+import com.zyao89.view.zloading.Z_TYPE
 import javax.inject.Inject
 
 /**
@@ -33,7 +34,7 @@ abstract class AppMvpFragment<T : AppPresenter<*>> : AppFragment(), AppView {
     /**
      * 显示加载框的默认实现
      */
-    override fun showLoading() {
+    override fun showLoading(TYPE: Z_TYPE) {
 
     }
 

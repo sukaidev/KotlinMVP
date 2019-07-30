@@ -1,5 +1,7 @@
 package com.sukaidev.common.presenter.view
 
+import com.zyao89.view.zloading.Z_TYPE
+
 /**
  * Created by sukaidev on 2019/07/27.
  *
@@ -9,7 +11,7 @@ interface AppView {
     /**
      * 显示加载框
      */
-    fun showLoading()
+    fun showLoading(TYPE: Z_TYPE)
 
     /**
      * 隐藏加载框

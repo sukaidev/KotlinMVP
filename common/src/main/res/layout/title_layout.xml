@@ -20,5 +20,5 @@
             android:layout_centerVertical="true"
             android:textSize="20sp"
             android:text="Sign up"
-    />
+            android:layout_alignParentEnd="true"/>
 </RelativeLayout>

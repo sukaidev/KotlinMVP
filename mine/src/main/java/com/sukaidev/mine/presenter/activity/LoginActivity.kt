@@ -3,14 +3,21 @@ package com.sukaidev.mine.presenter.activity
 import android.graphics.Paint
 import android.view.View
 import android.widget.TextView
+import com.sukaidev.common.common.AppManager
 import com.sukaidev.common.ext.onClick
 import com.sukaidev.common.presenter.activity.AppMvpActivity
+import com.sukaidev.common.utils.AlerterUtils
 import com.sukaidev.mine.R
 import com.sukaidev.mine.data.entity.UserInfo
 import com.sukaidev.mine.presenter.LoginPresenter
 import com.sukaidev.mine.presenter.view.LoginView
+import com.sukaidev.mine.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.input_login_layout.*
+import kotlinx.android.synthetic.main.title_layout.view.*
+
 import org.jetbrains.anko.find
+import org.jetbrains.anko.toast
 
 /**
  * Created by sukaidev on 2019/07/30.
@@ -21,11 +28,16 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
     private var mForgetPwdBtn: TextView? = null
 
     override fun injectComponent() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//        DaggerUserComponent.builder()
+//            .activityComponent(activityComponent)
+//            .userModule(UserModule())
+//            .build()
+//            .inject(this)
+        mPresenter.mView = this
     }
 
     override fun layoutId(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return R.layout.activity_login
     }
 
     /**
@@ -40,8 +52,9 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
         // 登录
         mLoginBtn.onClick(this)
         // 注册
-//        mTitleLayout.onClick(this)
-
+        mTitleLayout.mSignInBtn.onClick(this)
+        // 忘记密码
+        mForgetPwdBtn!!.onClick(this)
     }
 
     /**
@@ -51,12 +64,38 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+
+    /**
+     * 登录回调，保存用户信息，返回首页，实现LoginView
+     */
     override fun loginResult(result: UserInfo) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        toast("登录成功")
+        //保存用户信息
+        UserPrefsUtils.putUserInfo(result)
+        finish()
     }
 
-    override fun onClick(v: View?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onClick(v: View) {
+        when (v.id) {
+            R.id.mSignInBtn -> {
+
+            }
+            R.id.mForgetPwdBtn -> {
+                toast("忘记密码")
+            }
+            R.id.mLoginBackBtn -> {
+                if (mUserNameEt.text.toString() == "" || mPwdEt.text.toString() == "") {
+                    AlerterUtils.error(this, "消息通知", "用户名或密码不能为空！")
+                    return
+                }
+            }
+        }
     }
 
+    /**
+     * 点击back键关闭页面
+     */
+    override fun onBackPressed() {
+        AppManager.instance.finishActivity(this)
+    }
 }

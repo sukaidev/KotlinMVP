@@ -9,7 +9,7 @@
                 tools:context=".presenter.activity.LoginActivity"
                 android:id="@+id/mLoginLayout">
 
-    <cn.githink.common.widgets.LoginTitle
+    <com.sukaidev.common.widgets.LoginTitle
             android:layout_width="match_parent"
             android:layout_height="50dip"
             android:id="@+id/mTitleLayout"
@@ -31,9 +31,7 @@
                 circleimageview:civ_border_color="@android:color/widget_edittext_dark"
                 circleimageview:civ_border_overlay="false"
                 circleimageview:civ_border_width="2dp"
-                circleimageview:civ_fill_color="@android:color/holo_blue_light"
-
-        />
+                circleimageview:civ_fill_color="@android:color/holo_blue_light"/>
 
         <TextView
                 android:layout_width="fill_parent"

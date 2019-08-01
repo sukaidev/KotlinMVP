@@ -33,8 +33,8 @@ abstract class AppMvpActivity<P : AppPresenter<*>> : AppActivity(), AppView {
 
     lateinit var dialog: ZLoadingDialog
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         //初始化ZLoadingDialog
         dialog = ZLoadingDialog(this)
         initActivityInjection()
@@ -64,7 +64,7 @@ abstract class AppMvpActivity<P : AppPresenter<*>> : AppActivity(), AppView {
     /**
      * 错误信息的默认实现
      */
-    override fun onError(message:String) {
+    override fun onError(message: String) {
         Alerter.create(this)
             .setTitle("消息通知")
             .setText(message)

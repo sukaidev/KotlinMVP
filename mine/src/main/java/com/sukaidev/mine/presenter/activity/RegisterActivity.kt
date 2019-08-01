@@ -6,6 +6,8 @@ import com.sukaidev.common.ext.startTop
 import com.sukaidev.common.presenter.activity.AppMvpActivity
 import com.sukaidev.common.utils.AlerterUtils
 import com.sukaidev.mine.R
+import com.sukaidev.mine.injection.component.DaggerUserComponent
+import com.sukaidev.mine.injection.module.UserModule
 import com.sukaidev.mine.presenter.RegisterPresenter
 import com.sukaidev.mine.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
@@ -18,7 +20,12 @@ import org.jetbrains.anko.toast
  */
 class RegisterActivity : AppMvpActivity<RegisterPresenter>(), RegisterView, View.OnClickListener {
     override fun injectComponent() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        DaggerUserComponent.builder()
+            .activityComponent(activityComponent)
+            .userModule(UserModule())
+            .build()
+            .inject(this)
+        mPresenter.mView = this
     }
 
     override fun layoutId(): Int {
@@ -33,7 +40,7 @@ class RegisterActivity : AppMvpActivity<RegisterPresenter>(), RegisterView, View
     }
 
     override fun initData() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun onClick(v: View) {

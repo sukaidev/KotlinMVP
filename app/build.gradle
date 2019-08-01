@@ -32,6 +32,9 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    api project(":mine")
+    if (isMineModule.toBoolean()) {
+        //引入Mine 模块
+        api project(':mine')
+    }
     api project(":provider")
 }

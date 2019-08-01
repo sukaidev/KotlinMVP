@@ -5,8 +5,10 @@ import android.view.View
 import android.widget.TextView
 import com.sukaidev.common.common.AppManager
 import com.sukaidev.common.ext.onClick
+import com.sukaidev.common.ext.startTop
 import com.sukaidev.common.presenter.activity.AppMvpActivity
 import com.sukaidev.common.utils.AlerterUtils
+import com.sukaidev.common.widgets.LoginTitle
 import com.sukaidev.mine.R
 import com.sukaidev.mine.data.entity.UserInfo
 import com.sukaidev.mine.injection.component.DaggerUserComponent
@@ -16,7 +18,6 @@ import com.sukaidev.mine.presenter.view.LoginView
 import com.sukaidev.mine.utils.UserPrefsUtils
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.input_login_layout.*
-import kotlinx.android.synthetic.main.title_layout.view.*
 
 import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
@@ -28,6 +29,8 @@ import org.jetbrains.anko.toast
 class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
 
     private var mForgetPwdBtn: TextView? = null
+
+    private lateinit var mTitleLayout: LoginTitle
 
     override fun injectComponent() {
         DaggerUserComponent.builder()
@@ -47,6 +50,7 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
      */
     override fun initView() {
         mLoginLayout.setBackgroundResource(R.drawable.login_bg)
+        mTitleLayout = find(R.id.mTitleLayout)
         mForgetPwdBtn = find(R.id.mForgetPwdBtn)
         mForgetPwdBtn!!.paint.isAntiAlias = true
         mForgetPwdBtn!!.paint.flags = Paint.UNDERLINE_TEXT_FLAG
@@ -54,7 +58,8 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
         // 登录
         mLoginBtn.onClick(this)
         // 注册
-        mTitleLayout.mSignInBtn.onClick(this)
+        mTitleLayout.getSignInBtn().onClick(this)
+//        mTitleLayout.mSignInBtn.onClick(this)
         // 忘记密码
         mForgetPwdBtn!!.onClick(this)
     }
@@ -63,7 +68,7 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
      * 初始化数据
      */
     override fun initData() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
 
@@ -80,7 +85,7 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
     override fun onClick(v: View) {
         when (v.id) {
             R.id.mSignInBtn -> {
-
+                startTop<RegisterActivity>()
             }
             R.id.mForgetPwdBtn -> {
                 toast("忘记密码")
@@ -90,6 +95,10 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
                     AlerterUtils.error(this, "消息通知", "用户名或密码不能为空！")
                     return
                 }
+                /**
+                 * 登录方法
+                 */
+                mPresenter.login(mUserNameEt.text.toString(), mPwdEt.text.toString())
             }
         }
     }

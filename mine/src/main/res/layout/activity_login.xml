@@ -15,7 +15,7 @@
             android:id="@+id/mTitleLayout"
             app:mSignInBtn="Sign up"/>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/login_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 circleimageview:civ_border_width="2dp"
                 circleimageview:civ_fill_color="@android:color/holo_blue_light"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
@@ -42,14 +42,14 @@
                 android:textColor="#ffffff"
                 android:textSize="24sp"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="打造最好用的Android Mvp架构"
                 android:textColor="#ffffff"
                 android:textSize="16sp"/>
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 android:layout_height="160dip"
                 layout="@layout/input_login_layout"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/mLoginBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                 android:textColor="#ffffff"
                 android:textSize="20sp"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/mForgetPwdBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

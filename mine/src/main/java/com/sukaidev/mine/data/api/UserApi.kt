@@ -2,6 +2,7 @@ package com.sukaidev.mine.data.api
 
 import com.sukaidev.common.http.entity.Think
 import com.sukaidev.mine.data.entity.LoginRequest
+import com.sukaidev.mine.data.entity.RegisterRequest
 import com.sukaidev.mine.data.entity.UserInfo
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -18,4 +19,10 @@ interface UserApi {
      */
     @POST("userCenter/login")
     fun login(@Body req: LoginRequest): Observable<Think<UserInfo>>
+
+    /**
+     * 用户注册
+     */
+    @POST("userCenter/register")
+    fun register(@Body req: RegisterRequest): Observable<Think<String>>
 }

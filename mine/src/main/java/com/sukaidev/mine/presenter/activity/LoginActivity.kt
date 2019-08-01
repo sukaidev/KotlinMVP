@@ -9,6 +9,8 @@ import com.sukaidev.common.presenter.activity.AppMvpActivity
 import com.sukaidev.common.utils.AlerterUtils
 import com.sukaidev.mine.R
 import com.sukaidev.mine.data.entity.UserInfo
+import com.sukaidev.mine.injection.component.DaggerUserComponent
+import com.sukaidev.mine.injection.module.UserModule
 import com.sukaidev.mine.presenter.LoginPresenter
 import com.sukaidev.mine.presenter.view.LoginView
 import com.sukaidev.mine.utils.UserPrefsUtils
@@ -28,11 +30,11 @@ class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickL
     private var mForgetPwdBtn: TextView? = null
 
     override fun injectComponent() {
-//        DaggerUserComponent.builder()
-//            .activityComponent(activityComponent)
-//            .userModule(UserModule())
-//            .build()
-//            .inject(this)
+        DaggerUserComponent.builder()
+            .activityComponent(activityComponent)
+            .userModule(UserModule())
+            .build()
+            .inject(this)
         mPresenter.mView = this
     }
 

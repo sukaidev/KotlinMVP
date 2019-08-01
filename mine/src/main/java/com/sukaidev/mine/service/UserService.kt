@@ -8,5 +8,7 @@ import rx.Observable
  *
  */
 interface UserService {
-    fun login(userName:String,password:String,pushId:String): Observable<UserInfo>?
+    fun login(userName: String, password: String, pushId: String): Observable<UserInfo>
+
+    fun register(username: String, password: String, verifyCode: String): Observable<Boolean>
 }

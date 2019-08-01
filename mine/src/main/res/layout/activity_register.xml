@@ -3,23 +3,22 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:circleimageview="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent" android:layout_height="match_parent"
                 android:background="@color/common_yellow"
-                tools:context="com.sukaidev.mine.presenter.activity.LoginActivity"
-                android:id="@+id/mLoginLayout">
+                tools:context="com.sukaidev.mine.presenter.activity.RegisterActivity"
+                android:id="@+id/mRegisterLayout">
 
     <com.sukaidev.common.widgets.LoginTitle
             android:layout_width="match_parent"
             android:layout_height="50dip"
-            android:id="@+id/mTitleLayout"
-            app:mSignInBtn="Sign up"/>
+            android:id="@+id/mMainTitle"
+            app:mSignInBtn="Sign in"/>
 
     <LinearLayout
             android:id="@+id/login_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mTitleLayout"
+            android:layout_below="@+id/mMainTitle"
             android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -31,10 +30,12 @@
                 circleimageview:civ_border_color="@android:color/widget_edittext_dark"
                 circleimageview:civ_border_overlay="false"
                 circleimageview:civ_border_width="2dp"
-                circleimageview:civ_fill_color="@android:color/holo_blue_light"/>
+                circleimageview:civ_fill_color="@android:color/holo_blue_light"
+
+        />
 
         <TextView
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
                 android:gravity="center"
@@ -60,11 +61,11 @@
         <include
                 android:id="@+id/input_layout"
                 android:layout_width="match_parent"
-                android:layout_height="160dip"
-                layout="@layout/input_login_layout"/>
+                android:layout_height="220dip"
+                layout="@layout/input_register_layout"/>
 
         <TextView
-                android:id="@+id/mLoginBtn"
+                android:id="@+id/mRegisterBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/input_layout"
@@ -76,18 +77,10 @@
                 android:paddingLeft="40dip"
                 android:paddingRight="40dip"
                 android:paddingTop="3dip"
-                android:text="登录"
+                android:text="注册"
                 android:textColor="#ffffff"
                 android:textSize="20sp"/>
 
-        <TextView
-                android:id="@+id/mForgetPwdBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/mLoginBtn"
-                android:layout_marginTop="20dp"
-                android:layout_centerInParent="true"
-                android:textColor="@color/common_white"
-                android:text="忘记密码"/>
     </RelativeLayout>
+
 </RelativeLayout>

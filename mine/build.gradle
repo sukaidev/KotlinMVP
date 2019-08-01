@@ -8,6 +8,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
 android {
     compileSdkVersion 28
 
@@ -55,4 +61,7 @@ dependencies {
 
     //Dagger2
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //ARouter
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 }

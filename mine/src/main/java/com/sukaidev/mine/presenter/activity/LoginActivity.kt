@@ -3,6 +3,7 @@ package com.sukaidev.mine.presenter.activity
 import android.graphics.Paint
 import android.view.View
 import android.widget.TextView
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.sukaidev.common.common.AppManager
 import com.sukaidev.common.ext.onClick
 import com.sukaidev.common.ext.startTop
@@ -16,6 +17,7 @@ import com.sukaidev.mine.injection.module.UserModule
 import com.sukaidev.mine.presenter.LoginPresenter
 import com.sukaidev.mine.presenter.view.LoginView
 import com.sukaidev.mine.utils.UserPrefsUtils
+import com.sukaidev.provider.router.RouterPath
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.input_login_layout.*
 
@@ -26,6 +28,7 @@ import org.jetbrains.anko.toast
  * Created by sukaidev on 2019/07/30.
  *
  */
+@Route(path = RouterPath.MineModule.LOGIN_PATH)
 class LoginActivity : AppMvpActivity<LoginPresenter>(), LoginView, View.OnClickListener {
 
     private var mForgetPwdBtn: TextView? = null

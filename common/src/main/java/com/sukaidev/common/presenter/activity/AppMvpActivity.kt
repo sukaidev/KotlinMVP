@@ -3,6 +3,7 @@ package com.sukaidev.common.presenter.activity
 import android.graphics.Color
 import android.os.Bundle
 import android.os.PersistableBundle
+import com.alibaba.android.arouter.launcher.ARouter
 import com.sukaidev.common.App
 import com.sukaidev.common.R
 import com.sukaidev.common.injection.component.ActivityComponent
@@ -35,6 +36,8 @@ abstract class AppMvpActivity<P : AppPresenter<*>> : AppActivity(), AppView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //ARouter注册
+        ARouter.getInstance().inject(this)
         //初始化ZLoadingDialog
         dialog = ZLoadingDialog(this)
         initActivityInjection()
